@@ -1,0 +1,137 @@
+# Тестовые данные.
+
+2
+
+TEST_DATA = [
+
+3
+
+    (44, 'success', True),
+
+    4
+
+        (16, 'failure', True),
+
+        5
+
+            (4, 'success', False),
+
+            6
+
+                (21, 'failure', False),
+
+                7
+
+                ]
+
+                8
+
+                ​
+
+                9
+
+                BONUS = 1.1
+
+                10
+
+                ANTIBONUS = 0.8
+
+                11
+
+                ​
+
+                12
+
+                def add_rep(current_rep, rep_points, buf_effect):
+
+                13
+
+                    current_rep += rep_points
+
+                    14
+
+                        if buf_effect:
+
+                        15
+
+                                return current_rep * BONUS
+
+                                16
+
+                                    return current_rep
+
+                                    17
+
+                                    ​
+
+                                    18
+
+                                    def remove_rep(current_rep, rep_points, debuf_effect):
+
+                                    19
+
+                                        current_rep -= rep_points
+
+                                        20
+
+                                            if debuf_effect:
+
+                                            21
+
+                                                    return current_rep * ANTIBONUS
+
+                                                    22
+
+                                                        return current_rep
+
+                                                        23
+
+                                                        ​
+
+                                                        24
+
+                                                        def main(duel_res):
+
+                                                        25
+
+                                                            current_rep = 0.0
+
+                                                            26
+
+                                                                for rep, result, effect in duel_res:
+
+                                                                27
+
+                                                                        if result == 'success':
+
+                                                                        28
+
+                                                                                    current_rep = add_rep(current_rep, rep, effect)
+
+                                                                                    29
+
+                                                                                            if result == 'failure':
+
+                                                                                            30
+
+                                                                                                        current_rep = remove_rep(current_rep, rep, effect)
+
+                                                                                                        31
+
+                                                                                                            return f'После {len(duel_res)} поединков, репутация персонажа — {current_rep:.3f} очков.'
+
+                                                                                                            32
+
+                                                                                                            ​
+
+                                                                                                            33
+
+                                                                                                            ​
+
+                                                                                                            34
+
+                                                                                                            # Тестовый вызов функции main.
+
+                                                                                                            35
+
+                                                                                                            print(main(TEST_DATA))
