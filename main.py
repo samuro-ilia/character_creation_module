@@ -4,6 +4,8 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name, char_class) -> str:
+    '''Функция рассчитывает урон, наносимый персонажем,
+    использует модуль рандом для рассчетов.'''
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон противнику '
                 f'равный {5 + randint(3, 5)}')
@@ -15,6 +17,8 @@ def attack(char_name, char_class) -> str:
 
 
 def defence(char_name, char_class) -> str:
+    '''Функция расчитывает кол-во заблокированного урона,
+    использует модуль рандом для расчетов.'''
     if char_class == 'warrior':
         return (f'{char_name} блокировал '
                 f'{10 + randint(5, 10)} урона')
@@ -26,6 +30,10 @@ def defence(char_name, char_class) -> str:
 
 
 def special(char_name, char_class) -> str:
+    '''Функция возвращает строку, описывающую специальное умение,
+    которое зависит от класса персонажа: воин - выносливость,
+    маг - атака, хил - защита. Количество поинтов спец умений
+    использует модуль рандом для расчетов'''
     if char_class == 'warrior':
         return (f'{char_name} применил специальное '
                 f'умение «Выносливость {80 + 25}»')
@@ -37,6 +45,9 @@ def special(char_name, char_class) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    '''Функция запускает тренировку, где можно выбрать один из
+    типов взаимодействия: атака, защита или спец умение. Тренировку
+    можно пропустить.'''
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — '
               'отличный боец ближнего боя.')
@@ -65,6 +76,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    '''Функция позволяет выбрать класс персонажа.'''
     approve_choice = None
     char_class = None
     while approve_choice != 'y':
